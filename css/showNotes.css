@@ -14,7 +14,7 @@
   box-shadow: 0 0 3px 1px #888;
   margin-top: 20px;
   margin-left: 10px;
-  /* word-wrap: break-word; */
+  word-wrap: break-word;
   height: fit-content;
   flex-grow: 1;
 }

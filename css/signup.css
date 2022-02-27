@@ -1,5 +1,5 @@
 .signup__parent {
-  max-width: 500px;
+  max-width: 400px;
   margin: auto;
   height: 100vh;
   display: flex;
@@ -58,10 +58,25 @@
 .signup__text {
   color: #fff !important;
   font-weight: 600;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;
 }
 
 .signup__text:hover {
   text-decoration: none !important;
+}
+
+.goToSignIn {
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;
 }
 
 @media only screen and (max-width: 1024px) {

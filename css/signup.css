@@ -1,0 +1,74 @@
+.signup__parent {
+  max-width: 500px;
+  margin: auto;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.signup__addUser {
+  width: 400px;
+}
+
+.singup__content {
+  display: flex;
+  flex-direction: column;
+}
+
+.singup__input {
+  border: 0;
+  margin-bottom: 15px;
+  border: 1px solid #052f5f;
+  font-size: 15px;
+  height: 40px;
+  border-radius: 7px;
+  padding: 5px 15px;
+}
+
+.signup__parent h2 {
+  font-weight: bold;
+  color: #052f5f;
+  margin-bottom: 15px;
+}
+
+.signup__parent p {
+  color: #052f5f;
+}
+
+.signup__parent p:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.signup__CTA {
+  background-color: #052f5f;
+  padding: 0px 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 4px;
+}
+
+.signup__CTA:hover {
+  cursor: pointer;
+}
+
+.signup__text {
+  color: #fff !important;
+  font-weight: 600;
+}
+
+.signup__text:hover {
+  text-decoration: none !important;
+}
+
+@media only screen and (max-width: 1024px) {
+  .signup__addUser {
+    width: 100%;
+  }
+  .signup__parent h2 {
+    text-align: center;
+  }
+}

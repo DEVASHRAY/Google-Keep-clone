@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+    <link rel="stylesheet" href="css/signin.css" />
+    <!-- <link rel="icon" type="image/x-icon" href="https://icon-library.com/images/mobile-menu-icon-png/mobile-menu-icon-png-20.jpg"> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <meta
+      name="description"
+      content="Web site created using create-react-app"
+    />
+    <meta
+      name="google-site-verification"
+      content="GzDbMR5vT6mWqIcAfF_f75sKr6UYfSsgS6rSxgmuyDQ"
+    />
+    <title>React Redux App</title>
+    <script type="module" async src="firebase/index.js"></script>
+    <script type="module" async src="SignIn_Scripts/signin.js"></script>
+  </head>
+
+  <body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+
+    <div class="signIn">
+      <div class="signin__parent">
+        <form
+          type="submit"
+          id="signin"
+          class="signin__addUser"
+          autocomplete="off"
+        >
+          <h2>Sign In</h2>
+          <div class="signin__content">
+            <input
+              type="text"
+              class="signin__input"
+              id="signin__name"
+              placeholder="Enter Your Name"
+            />
+            <input
+              type="password"
+              class="signin__input"
+              id="signin__password"
+              placeholder="Enter Your Password"
+            />
+          </div>
+          <div class="signin__CTA" id="signin__CTA">
+            <p class="signin__text">Sign In</p>
+          </div>
+        </form>
+        <p class="goToSignUp" id="goToSignUp">Not a User? Register Now.</p>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+    <link rel="stylesheet" href="css/signup.css" />
+    <!-- <link rel="icon" type="image/x-icon" href="https://icon-library.com/images/mobile-menu-icon-png/mobile-menu-icon-png-20.jpg"> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <meta
+      name="description"
+      content="Web site created using create-react-app"
+    />
+    <meta
+      name="google-site-verification"
+      content="GzDbMR5vT6mWqIcAfF_f75sKr6UYfSsgS6rSxgmuyDQ"
+    />
+    <title>React Redux App</title>
+    <script type="module" async src="firebase/index.js"></script>
+    <script type="module" async src="singupScripts/index.js"></script>
+  </head>
+
+  <body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+
+    <div class="signUp">
+      <div class="signup__parent">
+        <form
+          id="signup"
+          class="signup__addUser"
+          id="signUpUser"
+          autocomplete="off"
+        >
+          <h2>Sign Up</h2>
+          <div class="singup__content">
+            <input
+              type="text"
+              class="singup__input"
+              id="signup__name"
+              placeholder="Enter Your Name"
+            />
+            <input
+              type="email"
+              class="singup__input"
+              id="signup__email"
+              placeholder="Enter Your Email"
+            />
+            <input
+              type="password"
+              class="singup__input"
+              id="signup__password"
+              placeholder="Enter Your Password"
+            />
+          </div>
+          <div class="signup__CTA" id="signup__CTA">
+            <p class="signup__text">Sign Up</p>
+          </div>
+        </form>
+        <p class="goToSignIn" id="goToSignIn">Already a user. Sign In</p>
+      </div>
+    </div>
+  </body>
+</html>

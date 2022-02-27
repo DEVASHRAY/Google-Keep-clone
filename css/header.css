@@ -96,6 +96,43 @@
   width: 20px;
 }
 
+.signOutDiv {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  margin-right: 20px;
+}
+
+.signOutDiv > img {
+  width: 20px;
+}
+
+.signOutDiv > p {
+  /* background-color: #888; */
+  position: absolute;
+  font-size: 10px;
+  /* margin-top: 10px; */
+  background-color: #888;
+  color: #fff;
+  padding: 6px 4px;
+  border-radius: 8px;
+  margin-top: 10px;
+  display: none;
+  top: 16px;
+  min-width: 50px;
+  text-align: center;
+}
+
+.signOutDiv:hover {
+  margin-top: 12px;
+}
+
+.signOutDiv:hover p {
+  display: block;
+}
+
 .profile > img:nth-child(2) {
   margin: 0px 25px;
 }

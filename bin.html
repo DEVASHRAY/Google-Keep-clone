@@ -19,8 +19,8 @@
       name="google-site-verification"
       content="GzDbMR5vT6mWqIcAfF_f75sKr6UYfSsgS6rSxgmuyDQ"
     />
-    <title>Google Keep | Home</title>
-    <script type="module" async src="scripts/index.js"></script>
+    <title>Google Keep | Bin</title>
+    <script type="module" async src="binScript/bin.js"></script>
     <script type="module" async src="firebase/index.js"></script>
     <script type="module" async src="sharedScripts//header.js"></script>
   </head>
@@ -74,8 +74,8 @@
 
           <div class="header__profile">
             <div class="profile">
-              <div class="trashDiv" id="trash">
-                <p>Go to Bin</p>
+              <div class="trashDiv" id="goHome">
+                <p>Home</p>
               </div>
 
               <img
@@ -88,50 +88,6 @@
             </div>
           </div>
         </div>
-      </div>
-
-      <!-- CREATE NOTES -->
-
-      <div class="section">
-        <div class="input__section">
-          <div
-            class="input__section__header section__hide input__section__details"
-          >
-            <p>Title</p>
-            <img
-              src="data:image/png;base64,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"
-            />
-          </div>
-
-          <!-- INPUT TO ADD NOTES -->
-          <div class="input__section__noteInput">
-            <input id="inputArea" type="text" placeholder="Type a note..." />
-          </div>
-
-          <div class="section__options input__section__details section__hide">
-            <!-- <div class="section__options_details">
-              <img
-                src="https://i.pinimg.com/originals/4f/5d/23/4f5d23170a65869ff7c210342516ad2c.jpg"
-              />
-              <p class="hide">Add image</p>
-            </div>
-
-            <div class="section__options_details">
-              <img
-                src="https://i.pinimg.com/originals/4f/5d/23/4f5d23170a65869ff7c210342516ad2c.jpg"
-              />
-              <p class="hide">Add label</p>
-            </div> -->
-
-            <div class="section__options__submit" id="add_notes ">
-              <p>Close</p>
-            </div>
-          </div>
-
-          <!-- End of input section  -->
-        </div>
-
-        <!-- End of section  -->
       </div>
 
       <!-- NOTES DISPLAY -->

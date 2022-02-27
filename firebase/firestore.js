@@ -135,17 +135,79 @@ async function EditNote(noteID, editedNote) {
 
 async function DeleteNote(noteID) {
   console.log("delete  calling => ", noteID);
+
   let ref = doc(db, "Notes", `${userName}`);
 
   const { snapshotData } = await getSnapShot();
 
-  console.log("sp", snapshotData);
+  let deletedNote = [];
 
-  const deleted = snapshotData.filter(
-    (snapshot) => snapshot?.noteNo !== parseInt(noteID)
-  );
+  const deleted = snapshotData.filter((snapshot) => {
+    if (snapshot?.noteNo !== parseInt(noteID)) {
+      return snapshot;
+    } else {
+      deletedNote = [snapshot];
+    }
+  });
 
-  console.log("deleteNote", deleted);
+  console.log("deleteNote", deleted, deletedNote);
+
+  await updateDoc(ref, {
+    data: deleted,
+  })
+    .then((res) => console.log("upadted"))
+    .catch((err) => console.log(err));
+
+  await addToBin(deletedNote);
+  await deleteTrashNote(noteID);
+}
+
+async function addToBin(deletedNote) {
+  let ref = doc(db, "TrashNotes", userName);
+
+  try {
+    const docSnap = await getDoc(ref);
+
+    if (docSnap.exists()) {
+      const data = docSnap?.data()?.data || [];
+
+      await updateDoc(ref, {
+        data: [...data, ...deletedNote],
+      })
+        .then((res) => console.log("upadted"))
+        .catch((err) => console.log(err));
+    } else {
+      const docRef = await setDoc(ref, {
+        data: [...deletedNote],
+      })
+        .then(() => {
+          "trash added";
+        })
+        .catch((err) => alert("Failed To Upload trash"));
+    }
+  } catch (er) {
+    console.log(er);
+  }
+}
+
+async function deleteTrashNote(noteID) {
+  console.log("delete  calling => ", noteID);
+
+  let ref = doc(db, "TrashNotes", `${userName}`);
+
+  const snapshotData = await getTrashData();
+
+  let deletedNote = [];
+
+  const deleted = snapshotData.filter((snapshot) => {
+    if (snapshot?.noteNo !== parseInt(noteID)) {
+      return snapshot;
+    } else {
+      deletedNote = [snapshot];
+    }
+  });
+
+  console.log("deleteNote", deleted, deletedNote);
 
   await updateDoc(ref, {
     data: deleted,
@@ -154,4 +216,21 @@ async function DeleteNote(noteID) {
     .catch((err) => console.log(err));
 }
 
-export { AddNotesToFirebase, getSnapShot, EditNote, DeleteNote };
+async function getTrashData() {
+  let ref = doc(db, "TrashNotes", userName);
+  let trashData = [];
+
+  console.log("called");
+
+  const docSnap = await getDoc(ref);
+
+  if (docSnap.exists()) {
+    trashData = docSnap?.data()?.data || [];
+  } else {
+    alert("Failed to get bin data");
+  }
+
+  return trashData;
+}
+
+export { AddNotesToFirebase, getSnapShot, EditNote, DeleteNote, getTrashData };

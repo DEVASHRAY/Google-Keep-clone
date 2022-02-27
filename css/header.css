@@ -113,6 +113,12 @@
   color: #000;
 }
 
+#goHome:hover {
+  cursor: pointer;
+  text-decoration: underline;
+  color: #000;
+}
+
 @media only screen and (max-width: 1024px) {
   .header__components > img {
     width: 30px;

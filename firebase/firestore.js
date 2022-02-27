@@ -38,7 +38,6 @@ async function getSnapShot(newNote = "") {
 
       let latestNoteNo = 0;
       data.forEach((note) => {
-        console.log("noteno", note.noteNo, latestNoteNo);
         if (note.noteNo > latestNoteNo) {
           latestNoteNo = note.noteNo;
         }
@@ -133,8 +132,8 @@ async function EditNote(noteID, editedNote) {
     .catch((err) => console.log(err));
 }
 
-async function DeleteNote(noteID) {
-  console.log("delete  calling => ", noteID);
+async function DeleteNote(noteID, isHomePage) {
+  console.log("delete  calling => ", noteID, isHomePage);
 
   let ref = doc(db, "Notes", `${userName}`);
 
@@ -158,8 +157,11 @@ async function DeleteNote(noteID) {
     .then((res) => console.log("upadted"))
     .catch((err) => console.log(err));
 
-  await addToBin(deletedNote);
-  await deleteTrashNote(noteID);
+  if (isHomePage) {
+    await addToBin(deletedNote);
+  } else {
+    await deleteTrashNote(noteID);
+  }
 }
 
 async function addToBin(deletedNote) {
@@ -227,10 +229,17 @@ async function getTrashData() {
   if (docSnap.exists()) {
     trashData = docSnap?.data()?.data || [];
   } else {
-    alert("Failed to get bin data");
+    alert("No notes in trash");
   }
 
   return trashData;
 }
 
-export { AddNotesToFirebase, getSnapShot, EditNote, DeleteNote, getTrashData };
+export {
+  AddNotesToFirebase,
+  getSnapShot,
+  EditNote,
+  DeleteNote,
+  getTrashData,
+  getDate,
+};

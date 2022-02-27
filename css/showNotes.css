@@ -4,8 +4,8 @@
 }
 
 .showNotes {
-  width: 300px;
-  max-width: 300px;
+  width: 400px;
+  max-width: 400px;
   border: 1px solid #fff;
   padding: 20px 25px;
   border-radius: 7px;
@@ -40,7 +40,7 @@
 }
 
 #note {
-  min-height: 50px;
+  min-height: 85px;
   font-size: 16px;
 }
 
@@ -48,7 +48,7 @@ textarea {
   width: 100%;
   outline: none;
   border: 0;
-  min-height: 50px;
+  min-height: 85px;
   color: #000;
   resize: none;
   /* overflow: auto; */
@@ -61,6 +61,18 @@ textarea {
 
 textarea::-webkit-scrollbar {
   display: none;
+}
+
+.notes_metaData {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.seprator {
+  width: 100%;
+  border-top: 1px solid #888;
+  margin: 10px 0px;
 }
 
 @media only screen and (max-width: 1024px) {

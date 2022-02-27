@@ -1,5 +1,9 @@
 import { displayNotes } from "./modules/displayNotes.js";
-import { AddNotesToFirebase, getSnapShot } from "../firebase/firestore.js";
+import {
+  AddNotesToFirebase,
+  getSnapShot,
+  getDate,
+} from "../firebase/firestore.js";
 import checkUserLoggedIn from "../sharedScripts/checkAuth.js";
 
 const userExist = checkUserLoggedIn();
@@ -13,11 +17,16 @@ const getSnapShotData = async () => {
 
   let latestNoteNo = 0;
 
-  snapshotData.map((snapshot) => {
+  snapshotData.reverse().map((snapshot) => {
     if (snapshot?.noteNo > latestNoteNo) {
       latestNoteNo = snapshot.noteNo;
     }
-    displayNotes(snapshot?.note, snapshot?.noteNo);
+    displayNotes(
+      snapshot?.note,
+      snapshot?.noteNo,
+      snapshot?.date,
+      snapshot?.time
+    );
   });
 
   console.log("latestNoteNo before creating note in function", latestNoteNo);
@@ -54,7 +63,12 @@ const getSnapShotData = async () => {
   });
 
   inputArea.addEventListener("change", ({ target }) => {
-    displayNotes(target.value, latestNoteNo + 1);
+    displayNotes(
+      target.value,
+      latestNoteNo + 1,
+      getDate().date,
+      getDate().time
+    );
     AddNotesToFirebase(target.value);
     inputArea.value = "";
   });

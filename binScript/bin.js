@@ -12,7 +12,9 @@ async function getSnapShotData() {
 
   console.log("trashdata", trashData);
 
-  trashData.map((trash) => displayNotes(trash?.note, trash?.noteNo));
+  trashData.map((trash) =>
+    displayNotes(trash?.note, trash?.noteNo, trash?.date, trash?.time)
+  );
 }
 
 getSnapShotData();
